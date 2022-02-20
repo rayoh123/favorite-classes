@@ -20,7 +20,7 @@ const Course = (props) => {
                         description
                         instructor_history{
                             ucinetid
-                            name
+                            shortened_name
                         }
                     }
                 }`;
@@ -59,7 +59,9 @@ const Course = (props) => {
                 <ul className="instructors">
                     {courseInfo.instructor_history.map((instructor) =>
                         <li key={instructor.ucinetid}>
-                            <button onClick={() => displayInstructorDetails(instructor.ucinetid)}>{instructor.name}</button>
+                            <button onClick={() => displayInstructorDetails(instructor.ucinetid)}>
+                                {instructor.shortened_name}
+                            </button>
                         </li>
                     )}
                 </ul>
