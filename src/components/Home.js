@@ -1,45 +1,44 @@
 import React, { useState } from "react";
 import './Home.css';
-import Class from './Class.js';
+import Course from './Course.js';
 
 const Home = () => {
-  const [className, setClassName] = useState('');
-  const [classes, setClasses] = useState([]);
+	const [courseName, setCourseName] = useState('');
+	const [courses, setCourses] = useState([]);
 
-  const updateClassName = (event) => {
-    setClassName(event.target.value);
-  }
+	const updateCourseName = (event) => {
+		setCourseName(event.target.value);
+	}
 
-  const addNewClass = (event) => {
-    if (className !== '' && !classes.includes(className)) {
-      setClasses(classes.concat(className));
-    }
-    event.preventDefault();
-  }
+	const addNewCourse = (event) => {
+		if (courseName !== '' && !courses.includes(courseName)) {
+			setCourses(courses.concat(courseName));
+		}
+		event.preventDefault();
+	}
 
-  return (
-    <div>
-      {/* Title */}
-      <h1 id="title">Raymond's Favorite Classes</h1>
+	return (
+		<div>
+			{/* Title */}
+			<h1 id="title">Raymond's Favorite Courses</h1>
 
-      {/* Form for user input */}
-      <form id="classForm">
-        <label>Class Name:
-          <input type="text" name="className" autoComplete="name" onInput={updateClassName} />
-        </label>
-        <button onClick={addNewClass}>Submit</button>
-      </form>
+			{/* Form for user input */}
+			<form id="courseForm">
+				<label>Course Name:
+					<input type="text" name="courseName" autoComplete="name" onInput={updateCourseName} />
+					<button onClick={addNewCourse}>Submit</button>
+				</label>
+				<h1>You've entered in: {courseName}</h1>
+			</form>
 
-      <h1 id="info">You've entered in: {className}</h1>
-
-      {/* Display list of submitted classes */}
-      <ul id="classesList">
-        {classes.map((name, index) =>
-          <Class class="classItem" key={index} index={index} className={name} />
-        )}
-      </ul>
-    </div>
-  );
+			{/* Display list of submitted courses */}
+			<ul id="coursesList">
+			{courses.map((name, index) =>
+				<Course className="courseItem" key={index} courseName={name} />
+			)}
+			</ul>
+		</div>
+	);
 }
 
 export default Home;

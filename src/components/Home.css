@@ -11,18 +11,11 @@
     margin-bottom: 50px;
 }
 
-#classForm{
-    display: flex;
-    justify-content: center;
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
-
-#info{
+#courseForm{
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
-    margin-left: 50px;
+    justify-content: center;
+    align-items: center;
     margin-top: 10px;
     margin-bottom: 10px;
 }
